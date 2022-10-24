@@ -13,46 +13,38 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-//    public UserBean LoginIn(String username, String password) {
-//        return userMapper.getInfo(username,password);
-//    }
-
-
-    public UserRes Signup(String email,String password){
-        System.out.println("service");
-        System.out.println(email);
+    public UserRes SignUp(String email,String password){
         UserBean user = userMapper.findByEmail(email);
-        UserRes userRes = new UserRes();
-        userRes.Verified = false;
-        userRes.Success = false;
+        UserRes userRes = new UserRes(false, false);
         if (user != null) {
+            //already registered
             userRes.AlreadyRegistered = true;
-            userRes.Verified = user.verified;
-        } else{
+        } else {
+            //register successfully
+            userRes.Success = true;
             UserBean usr = new UserBean();
             usr.setEmail(email);
             usr.setPassword(password);
-            userRes.AlreadyRegistered = false;
             userMapper.save(usr);
-            userRes.Success = true;
         }
         return userRes;
     }
-    public UserRes Signin(String email,String password){
+    public UserRes SignIn(String email,String password){
         UserBean user = userMapper.findByEmail(email);
-        UserRes userRes = new UserRes();
-        userRes.Verified = user.verified;
+        UserRes userRes = new UserRes(false, false);
         if (user != null){
             userRes.AlreadyRegistered = true;
-            if (email == user.getEmail() && password == user.getPassword()){
+            if (password.equals(user.getPassword())){
+                //login successfully
                 userRes.Success = true;
-            }else{
+            } else {
+                //password is not correct
                 userRes.Success = false;
             }
-        }
-        else{
+        } else {
+            //email doesn't in the db
             userRes.AlreadyRegistered = false;
-            userRes.Success = false;
+            userRes.Success = true;
         }
         return userRes;
     }

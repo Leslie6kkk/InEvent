@@ -13,7 +13,6 @@ public class hellocontroller {
     @RequestMapping("/world")
     public UserRes sayHi(){
         UserRes userRes = new UserRes();
-//        userRes.Verified = false;
         userRes.Success = false;
         userRes.AlreadyRegistered = false;
         return userRes;

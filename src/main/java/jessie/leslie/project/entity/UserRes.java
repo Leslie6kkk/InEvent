@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 
 public class UserRes{
     public boolean AlreadyRegistered;
-    public boolean Verified;
     public boolean Success;
 }

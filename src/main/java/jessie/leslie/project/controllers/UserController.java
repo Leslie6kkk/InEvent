@@ -20,28 +20,25 @@ public class UserController {
 
     @RequestMapping(value = "/signup",method = RequestMethod.POST)
     public UserRes signUp(String Email,String Password){
-        System.out.println("controller");
-        System.out.println(Email);
-
-        if (Email == null || Password == null){
-            UserRes resError = new UserRes(false,false,false);
+        //There's something wrong with user's input
+        if (Email.equals("") || Password.equals("")){
+            UserRes resError = new UserRes(false,false);
             return resError;
-        }else{
-            UserRes res = userService.Signup(Email, Password);
-            System.out.println(res);
+        } else {
+            UserRes res = userService.SignUp(Email, Password);
             return res;
         }
     }
 
     @RequestMapping(value = "/signin",method = RequestMethod.POST)
     public UserRes signIn(String Email,String Password){
-
-        if (Email == null || Password == null){
-            UserRes resError = new UserRes(false,false,false);
+        //There's something wrong with user's input
+        if (Email.equals("") || Password.equals("")){
+            UserRes resError = new UserRes(false,false);
             return resError;
-        }else{
-            UserRes res = userService.Signin(Email, Password);
-            System.out.println(res);
+        } else {
+            System.out.println("here");
+            UserRes res = userService.SignIn(Email, Password);
             return res;
         }
     }

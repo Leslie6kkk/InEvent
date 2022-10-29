@@ -21,11 +21,11 @@ public class UserService {
             userRes.AlreadyRegistered = true;
         } else {
             //register successfully
-            userRes.Success = true;
             UserBean usr = new UserBean();
             usr.setEmail(email);
             usr.setPassword(password);
             userMapper.save(usr);
+            userRes.Success = true;
         }
         return userRes;
     }
@@ -44,6 +44,18 @@ public class UserService {
         } else {
             //email doesn't in the db
             userRes.AlreadyRegistered = false;
+            userRes.Success = true;
+        }
+        return userRes;
+    }
+    public UserRes BuildProfile(String email, String intro, String name){
+        UserBean user = userMapper.findByEmail(email);
+        UserRes userRes = new UserRes(false, false);
+        if (user != null){ // if user exists
+            userRes.AlreadyRegistered = true;
+            user.setIntro(intro);
+            user.setName(name);
+            userMapper.save(user);
             userRes.Success = true;
         }
         return userRes;

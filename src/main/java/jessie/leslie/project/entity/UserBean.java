@@ -13,8 +13,9 @@ import lombok.NoArgsConstructor;
 public class UserBean  {
 
     private String email;
-    private String username; // default = None
     private String password;
+    private String username; // default = None
+    private String introduction;
 
     public UserBean(String email, String password){
         this.email = email;
@@ -29,6 +30,14 @@ public class UserBean  {
         this.username = username;
     }
 
+    public String getIntro() {
+        return introduction;
+    }
+
+    public void setIntro(String intro) {
+        this.introduction = intro;
+    }
+    
     public String getEmail() {
         return email;
     }

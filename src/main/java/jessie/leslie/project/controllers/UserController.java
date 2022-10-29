@@ -37,9 +37,14 @@ public class UserController {
             UserRes resError = new UserRes(false,false);
             return resError;
         } else {
-            System.out.println("here");
             UserRes res = userService.SignIn(Email, Password);
             return res;
         }
+    }
+    
+    @RequestMapping(value = "/buildprofile",method = RequestMethod.POST)
+    public UserRes buildProfile(String Email, String Intro, String Name){
+        UserRes res = userService.BuildProfile(Email, Intro, Name);
+        return res;
     }
 }

@@ -1,0 +1,36 @@
+/* .nav{
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    background-color: #f1f1f1;
+} */
+.navbar {
+    background-color:#e3f2fd;
+}
+.nav.nav-tabs{
+    border-color: gray;
+    background-color:#e3f2fd;
+}
+.nav-item:hover .nav-link{
+    font-weight: bold;
+    color:gray 
+}
+.navbar-brand {
+    font-weight: bolder;
+    color:cornflowerblue;
+    text-shadow: 2px 2px 2px lightskyblue
+}
+.nav-item:active .nav-link{
+    font-weight: bold;
+    color:black
+}
+@media screen and (max-width:400px) {
+    .nav{
+        background-color: rgb(99, 99, 235);
+    }
+}
+@media screen and (min-width:400px) {
+    .nav{
+        background-color: #f1f1f1;
+    }
+}

@@ -5,7 +5,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Link, NavLink, Navigate } from 'react-router-dom'
 import HomePage from "../pages/homepage"
 import MainPage from "../pages/mainpage"
-import SignUp from "../pages/signup"
+import SignUp from "../pages/signup/SignupPage"
 import HeaderNav from '../components/HeaderNav/HeaderNav'
 import "../App.css"
 // const App = () => {

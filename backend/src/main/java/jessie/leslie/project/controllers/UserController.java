@@ -26,6 +26,7 @@ public class UserController {
             return resError;
         } else {
             UserRes res = userService.SignUp(Email, Password);
+            System.out.println(res);
             return res;
         }
     }

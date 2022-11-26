@@ -15,11 +15,18 @@ export default class SignUpForm extends Component {
         /**Prevent default jumpping */
         events.preventDefault();
         console.log(this.state)
+        fetch('http://localhost:8080/user/signup', {
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify([events.target.name])
+        }). then(() => {
+            console.log("Sign up successfully!")
+        })
     }
 
     HandleChange = (events) => {
         this.setState({
-            [events.target.name]:events.target.value,
+            [events.target.name]:events.target.value
             // password:events.target.value
         })
     }

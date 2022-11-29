@@ -18,7 +18,8 @@ export default class SignUpForm extends Component {
         fetch('http://localhost:8080/user/signup', {
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify([events.target.name])
+            // body:JSON.stringify([events.target.name])
+            body:JSON.stringify(this.state)
         }). then(() => {
             console.log("Sign up successfully!")
         })

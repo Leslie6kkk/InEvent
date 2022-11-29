@@ -8,6 +8,7 @@ import MainPage from "../pages/mainpage"
 import SignUp from "../pages/signup/SignupPage"
 import HeaderNav from '../components/HeaderNav/HeaderNav'
 import "../App.css"
+
 // const App = () => {
 //     return (
 //         <Router>
@@ -19,6 +20,7 @@ import "../App.css"
 //         </Router>
 //     )
 // }
+
 function App() {
     return (
         <div>

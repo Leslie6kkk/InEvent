@@ -8,7 +8,7 @@ export default class HeaderNav extends Component {
             <nav className='navbar navbar-expand-lg navbar-light'>
                 <div className='container-fluid'>
                     {/* <ul ul class="nav nav-tabs"> */}
-                    <Link className='navbar-brand' to="/MainPage">InEvent</Link>
+                    <Link className='navbar-brand' to="/homepage">InEvent</Link>
                     <div className='navbar-collapse'>
                         <ul className='navbar-nav mr-auto'>
                             <li className='nav-item'>

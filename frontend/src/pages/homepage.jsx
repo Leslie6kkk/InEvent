@@ -17,11 +17,17 @@ export default class HomePage extends Component {
                     <label for="">EMAIL: </label>
                     <input type="text" name="Email" value=""></input>
                     <br></br>
-                    <label for="">Password: </label>
+                    <label for="">PASSWORD: </label>
                     <input type="password" name="Password" value=""></input>
                     <br></br>
                     <button type = "submit">Submit</button>
+                    <br />
+                    <h2>Doesn't have an account?</h2>
+                    <br></br>
+                    <h2><a href="SignupForm.jsx">Sign up now!</a></h2>
                 </form>
+
+
             </div>
         )
     }

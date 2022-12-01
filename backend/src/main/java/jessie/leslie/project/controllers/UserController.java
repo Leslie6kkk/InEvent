@@ -1,6 +1,8 @@
 package jessie.leslie.project.controllers;
+import jessie.leslie.project.entity.UserBean;
 import jessie.leslie.project.entity.UserRes;
 import jessie.leslie.project.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 //import com.bcn.login_mybatis_demo.util.Result;
 //import com.bcn.login_mybatis_demo.util.ResultUtil;
@@ -17,10 +19,11 @@ public class UserController {
     UserService userService;
 
 
-    @RequestMapping(value = "/signup",method = RequestMethod.POST)
-    public UserRes signUp(String Email, String Password){
-        System.out.println(Email);
+    @PostMapping(value = "/signup")
+    public UserRes signUp(@RequestBody(required=false) UserBean user){
         //There's something wrong with user's input
+        String Email = user.getEmail();
+        String Password = user.getPassword();
         if (Email.equals("") || Password.equals("")){
             UserRes resError = new UserRes(false,false);
             return resError;
@@ -29,23 +32,12 @@ public class UserController {
             return res;
         }
     }
-//    @ResponseBody
-//    @RequestMapping(value = "/signup",method = RequestMethod.POST)
-//    public String updateAttr(@RequestBody Map<String, String> map) {
-//        if(map.containsKey("Email")) {
-//            String email = map.get("Email");
-//            System.out.println(email);
-//        }
-//        if(map.containsKey("Password")) {
-//            String objname = map.get("Password").toString();
-//        }
-//        // 操作 ...
-//        return "success";
-//    }
 
-    @RequestMapping(value = "/signin",method = RequestMethod.POST)
-    public UserRes signIn(String Email,String Password){
+    @PostMapping(value = "/signin")
+    public UserRes signIn(@RequestBody(required=false) UserBean user){
         //There's something wrong with user's input
+        String Email = user.getEmail();
+        String Password = user.getPassword();
         if (Email.equals("") || Password.equals("")){
             UserRes resError = new UserRes(false,false);
             return resError;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 
 export default class SignUpForm extends Component {
     constructor() {
@@ -9,20 +9,18 @@ export default class SignUpForm extends Component {
             password:""
         }
     }
+
+    // var data = JSON.stringify({
+    //     username: this.state.emial,
+    //     password: this.state.password
+    // });
     /**In the form, when you click on the event to submit,
      *  execute the onsubmit event first */
-    onSubmit = (events) => {
+    onSubmit = async (events) => {
         /**Prevent default jumpping */
         events.preventDefault();
-        console.log(this.state)
-        fetch('http://localhost:8080/user/signup', {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            // body:JSON.stringify([events.target.name])
-            body:JSON.stringify(this.state)
-        }). then(() => {
-            console.log("Sign up successfully!")
-        })
+        console.log(this.state);
+        await axios.post("http://localhost:8080/user/signup", this.state)
     }
 
     HandleChange = (events) => {
@@ -30,7 +28,7 @@ export default class SignUpForm extends Component {
             [events.target.name]:events.target.value
             // password:events.target.value
         })
-    }
+    };
     
     render() {
         // const {email, password} = this.state;
